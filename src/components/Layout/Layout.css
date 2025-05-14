@@ -1,0 +1,24 @@
+/* Estilos generales para el layout */
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Estilo para cuando la pantalla es más pequeña */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 1rem;
+  }
+}

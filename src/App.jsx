@@ -1,0 +1,54 @@
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import Login from './components/Login/Login';
+import Layout from './components/Layout/Layout';
+import './App.css';
+import PagPrincipal from './components/Principal/PagPrincipal'; 
+import { useEffect, useState } from 'react';
+
+function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() =>{
+
+    const user = localStorage.getItem('user')
+
+    if (user)
+    {
+      setIsLoggedIn(true)
+    }
+    setIsLoading(false)
+  }, [])
+
+  const handleLogout = () => {
+
+    localStorage.clear()
+    setIsLoggedIn(false)
+  }
+
+  const handleLogin = (userName) => {
+    localStorage.setItem('user', userName)
+    setIsLoggedIn(true)
+  };
+
+  if (isLoading) {
+    return null;
+  }
+  return (
+   <BrowserRouter>
+      <Routes>
+        {!isLoggedIn ? (
+          <Route path="/" element={<Login onLogin={handleLogin} />} />
+        ) : (
+          <Route path="/" element={<Layout logOut={handleLogout} />}>
+            <Route index element={<PagPrincipal />} />
+            <Route path="principal" element={<PagPrincipal />} />
+          </Route>
+        )}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;

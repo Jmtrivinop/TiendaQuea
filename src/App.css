@@ -1,0 +1,38 @@
+
+
+
+
+/* Reset default styles from template */
+:root {
+  --principal-light-background: #ffffff;
+  --secundary-light-backgorund: #fdf5f5;
+
+  --principal-dark-background: #121212;
+  --secundary-dark-background: #746c6c;
+}
+
+#root {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.light-theme {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+
