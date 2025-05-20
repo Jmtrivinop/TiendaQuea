@@ -3,17 +3,17 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #3563E9, #8661FF);
+  background: linear-gradient(135deg, #FFB347, #FF9966); /* Naranja degradado */
   padding: 1rem;
 }
 
 .login-card {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
+  background-color: #fffdf7; /* Beige claro */
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
   animation: fadeIn 0.5s ease-in-out;
 }
 
@@ -23,13 +23,13 @@
 }
 
 .login-card h1 {
-  color: #333;
+  color: #5a3e1b; /* Marrón oscuro */
   margin-bottom: 0.5rem;
-  font-size: 2rem;
+  font-size: 2.2rem;
 }
 
 .login-subtitle {
-  color: #666;
+  color: #7a5c3d; /* Marrón medio */
   margin-bottom: 2rem;
 }
 
@@ -46,46 +46,47 @@
 }
 
 .form-group label {
-  font-weight: 500;
-  color: #333;
+  font-weight: 600;
+  color: #5a3e1b;
 }
 
 .form-group input {
   padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 1px solid #e2cbb2;
+  border-radius: 6px;
   font-size: 1rem;
   transition: border-color 0.2s;
+  background-color: #fffaf3;
 }
 
 .form-group input:focus {
-  border-color: #3563E9;
+  border-color: #ff944d;
   outline: none;
-  box-shadow: 0 0 0 2px rgba(53, 99, 233, 0.2);
+  box-shadow: 0 0 0 2px rgba(255, 148, 77, 0.3);
 }
 
 .login-button {
-  background-color: #3563E9;
+  background-color: #ff944d;
   color: white;
   padding: 0.75rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s;
   margin-top: 1rem;
 }
 
 .login-button:hover {
-  background-color: #2a50c4;
+  background-color: #e67c35;
 }
 
 .error-message {
-  background-color: #fff2f2;
-  color: #e53e3e;
+  background-color: #fff5f5;
+  color: #c53030;
   padding: 0.75rem;
   border-radius: 4px;
-  border-left: 4px solid #e53e3e;
+  border-left: 4px solid #c53030;
   font-size: 0.9rem;
 }

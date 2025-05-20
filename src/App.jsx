@@ -3,6 +3,7 @@ import Login from './components/Login/Login';
 import Layout from './components/Layout/Layout';
 import './App.css';
 import PagPrincipal from './components/Principal/PagPrincipal'; 
+import {Carrito} from './components/carrito/Carrito';
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -41,8 +42,9 @@ function App() {
           <Route path="/" element={<Login onLogin={handleLogin} />} />
         ) : (
           <Route path="/" element={<Layout logOut={handleLogout} />}>
-            <Route index element={<PagPrincipal />} />
+            <Route index element={<Navigate to="/principal" replace />} />
             <Route path="principal" element={<PagPrincipal />} />
+            <Route path="carrito" element={<Carrito />} />
           </Route>
         )}
         <Route path="*" element={<Navigate to="/" replace />} />

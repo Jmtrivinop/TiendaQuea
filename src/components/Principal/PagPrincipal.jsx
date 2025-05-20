@@ -3,6 +3,7 @@ import '@google/model-viewer';
 import { productos } from '../data/data';
 import { Carrito } from '../carrito/Carrito';
 import './PagPrincipal.css';
+import { Link } from 'react-router-dom';
 function PagPrincipal() {
     const [carrito, setCarrito] = useState([]);
 
@@ -24,6 +25,11 @@ function PagPrincipal() {
     return (
         <div className="Principal">
             <h1>Tienda 3D</h1>
+            <Link to="/carrito">
+          
+                <button className="btn-carrito">Ver Carrito</button>
+            </Link>
+            
             <Carrito carrito={carrito} setCarrito={setCarrito} />
             <div className="galeria">
                 {productos.map((item) => (

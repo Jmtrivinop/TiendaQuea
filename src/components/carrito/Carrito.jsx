@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+/* import './Carrito.css'; */
 export function Carrito({ carrito, setCarrito }) {
   const total = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
 
@@ -6,7 +8,11 @@ export function Carrito({ carrito, setCarrito }) {
   };
 
   return (
+     
     <div className="carrito">
+      <Link to="/principal">
+          <button className="btn-carrito">Volver a la tienda</button>
+        </Link>
       <h2>🛒</h2>
       {carrito.length === 0 ? (
         <p>Tu carrito está vacío</p>
@@ -24,5 +30,9 @@ export function Carrito({ carrito, setCarrito }) {
         </>
       )}
     </div>
+
+    
   );
 }
+
+
