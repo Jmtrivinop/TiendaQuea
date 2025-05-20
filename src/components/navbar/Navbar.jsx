@@ -1,28 +1,15 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from "react-router-dom";
 import "./Navbar.css";
 
-export const Navbar = ({ carrito }) => {
-  const [currentUser, setCurrentUser] = useState(
-    localStorage.getItem("currentUser")
-  );
+export const Navbar = ({ carrito, logOut }) => {
+  const [currentUser, setCurrentUser] = useState(localStorage.getItem("user"));
   const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem("currentUser");
-    setCurrentUser(null);
-    navigate("/login");
+    logOut(); // usa el prop
     setShowDropdown(false);
-  };
-
-  const goToCart = () => {
-    navigate("/cart");
-  };
-
-  const goToHome = () => {
-    navigate("/");
   };
 
   useEffect(() => {
@@ -43,30 +30,23 @@ export const Navbar = ({ carrito }) => {
 
   return (
     <header className="navbar">
-      <h1>Tienda 3D</h1>
-      <Link to="/carrito">
-    
-          <button className="btn-carrito">Ver Carrito</button>
-      </Link>
-      <div className="navbar-brand">
-        <h1 onClick={goToHome} style={{ cursor: "pointer" }}>
-          Tienda 3D
-        </h1>
+      <div className="navbar-brand" onClick={() => navigate("/principal")} style={{ cursor: "pointer" }}>
+        <h1>Tienda 3D</h1>
       </div>
+
       <div className="navbar-actions">
-        <div className="cart-icon-container" onClick={goToCart}>
+        <Link to="/principal" className="nav-button">Principal</Link>
+
+        <div className="cart-icon-container" onClick={() => navigate("/carrito")} style={{ cursor: "pointer" }}>
           <span className="cart-icon">🛒</span>
           {carrito.length > 0 && (
-            <span className="cart-badge">{carrito.length}</span>
+            <span className="cart-badge">{carrito.reduce((sum, item) => sum + item.cantidad, 0)}</span>
           )}
         </div>
 
         {currentUser ? (
           <div className="user-dropdown">
-            <button
-              className={`user-button ${showDropdown ? "active" : ""}`}
-              onClick={() => setShowDropdown(!showDropdown)}
-            >
+            <button className={`user-button ${showDropdown ? "active" : ""}`} onClick={() => setShowDropdown(!showDropdown)}>
               {currentUser} <span className="dropdown-icon">▼</span>
             </button>
             {showDropdown && (
@@ -78,9 +58,7 @@ export const Navbar = ({ carrito }) => {
             )}
           </div>
         ) : (
-          <a href="/login" className="login-button">
-            Iniciar Sesión
-          </a>
+          <Link to="/login" className="login-button">Iniciar Sesión</Link>
         )}
       </div>
     </header>
