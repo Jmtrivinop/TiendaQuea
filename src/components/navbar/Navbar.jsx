@@ -35,7 +35,9 @@ export const Navbar = ({ carrito, logOut }) => {
       </div>
 
       <div className="navbar-actions">
-        <Link to="/principal" className="nav-button">Principal</Link>
+        <button>
+          <Link to="/principal" className="nav-button">Principal</Link>
+        </button>
 
         <div className="cart-icon-container" onClick={() => navigate("/carrito")} style={{ cursor: "pointer" }}>
           <span className="cart-icon">🛒</span>
